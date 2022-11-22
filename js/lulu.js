@@ -1,4 +1,3 @@
-function myspine() {
 new spine.SpinePlayer("player-container", {
  skelUrl: "https://cdn.jsdelivr.net/gh/andlove/pic/2d/c141/c141_00.skel",
  atlasUrl: "https://cdn.jsdelivr.net/gh/andlove/pic/2d/c141/c141_00.atlas",
@@ -21,4 +20,3 @@ new spine.SpinePlayer("player-container", {
   });
   }
 });
-}
