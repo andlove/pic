@@ -1,7 +1,7 @@
 
 var divElement = document.createElement("Div");
 divElement.id = "aplayer";
-document.getElementsByTagName("head")[0].appendChild(divElement);
+document.getElementsByTagName("body")[0].appendChild(divElement);
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     fixed: true,
@@ -11,5 +11,4 @@ const ap = new APlayer({
         url: 'url.mp3',
         cover: 'cover.jpg',
     }]
-});
 });
