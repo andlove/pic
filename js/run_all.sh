@@ -1,15 +1,18 @@
 #!/bin/bash
 
-# 定义文件的GitHub原始链接
+# Define file URLs
 BATCH_COPY_URL="https://raw.githubusercontent.com/andlove/pic/master/js/batch_copy.sh"
 FILE_LIST_URL="https://raw.githubusercontent.com/andlove/pic/master/js/file_list.txt"
 
-# 下载文件
+# Download files
 curl -O $BATCH_COPY_URL
 curl -O $FILE_LIST_URL
 
-# 确保脚本具有执行权限
+# Ensure script has execution permissions
 chmod +x batch_copy.sh
 
-# 执行脚本
+# Convert file_list.txt to Unix format
+dos2unix file_list.txt
+
+# Execute script
 ./batch_copy.sh
