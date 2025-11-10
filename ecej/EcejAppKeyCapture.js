@@ -1,7 +1,6 @@
-
 (function () {
-  const fs = require('fs');
-  const PATH = '/var/mobile/Library/Mobile Documents/iCloud~dk~simonbs~Scriptable/Documents/gas_appkey.json';
+  const fm = FileManager.iCloud(); // 使用 QX 的 iCloud 文件管理
+  const PATH = fm.joinPath(fm.documentsDirectory(), "gas_appkey.json");
 
   function parseForm(body) {
     const out = {};
@@ -27,7 +26,7 @@
       source: 'QuantumultX/request-body'
     };
     try {
-      fs.writeFileSync(PATH, JSON.stringify(content, null, 2));
+      fm.writeString(PATH, JSON.stringify(content, null, 2)); // 写入到 iCloud 文件
       console.log(`[EcejAppKey] ✅ 捕获成功: ${String(appKey)}`);
     } catch (e) {
       console.log('[EcejAppKey] ❌ 写入失败:', e);
