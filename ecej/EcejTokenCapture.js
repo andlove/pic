@@ -1,7 +1,6 @@
-
 (function () {
-  const fs = require('fs');
-  const PATH = '/var/mobile/Library/Mobile Documents/iCloud~dk~simonbs~Scriptable/Documents/gas_token.json';
+  const fm = FileManager.iCloud(); // 使用 QX 的 iCloud 文件管理
+  const PATH = fm.joinPath(fm.documentsDirectory(), "gas_token.json");
 
   const raw = $response && $response.body ? $response.body : '';
   let token = '';
@@ -19,7 +18,7 @@
       source: 'QuantumultX/code2Session'
     };
     try {
-      fs.writeFileSync(PATH, JSON.stringify(content, null, 2));
+      fm.writeString(PATH, JSON.stringify(content, null, 2)); // 写入到 iCloud 文件
       console.log(`[EcejToken] ✅ 捕获成功: ${String(token).slice(0, 12)}...`);
     } catch (e) {
       console.log('[EcejToken] ❌ 写入失败:', e);
